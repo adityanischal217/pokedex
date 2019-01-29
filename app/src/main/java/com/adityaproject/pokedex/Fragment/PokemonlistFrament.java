@@ -1,7 +1,11 @@
 package com.adityaproject.pokedex.Fragment;
 
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -14,9 +18,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adityaproject.pokedex.Adapter.PokemonDataAdapter;
+import com.adityaproject.pokedex.Adapter.PokemonListAdapter;
+import com.adityaproject.pokedex.AppConstantKeys;
 import com.adityaproject.pokedex.Interface.Listener;
 import com.adityaproject.pokedex.Model.PokemonData;
 import com.adityaproject.pokedex.Model.PokemonResult;
@@ -41,9 +47,12 @@ public class PokemonlistFrament extends Fragment implements Listener {
     private static final String TAG = "Debugtag";
     @BindView(R.id.pokemonlist_rv)
     RecyclerView mPokemonRV;
-    PokemonDataAdapter pokemonDataAdapter;
+    @BindView(R.id.nointernet_tv)
+    TextView mNoInternetTV;
+    PokemonListAdapter pokemonDataAdapter;
     Context context;
-    String BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
+    ProgressDialog progress;
+    private static int NAV_ITEM_INDEX = 2;
 
     public PokemonlistFrament() {
         // Required empty public constructor
@@ -60,38 +69,53 @@ public class PokemonlistFrament extends Fragment implements Listener {
         if (actionBar != null)
             actionBar.setTitle("Pokedox");
         init();
-        // Inflate the layout for this fragment
         return view;
     }
 
     private void init() {
         context = getContext();
+        progress = new ProgressDialog(context);
         callAPI();
     }
 
     private void callAPI() {
-
+        progress.setMessage("Loading...");
+        progress.setCancelable(true);
+        progress.setCanceledOnTouchOutside(true);
+        progress.show();
         RestApiInterface apiService =
-                RestApiClient.getClient(BASE_URL).create(RestApiInterface.class);
+                RestApiClient.getClient(AppConstantKeys.BASE_URL).create(RestApiInterface.class);
         Call<PokemonData> call = apiService.getPokemonList();
         call.enqueue(new Callback<PokemonData>() {
             @Override
             public void onResponse(Call<PokemonData> call, Response<PokemonData> response) {
                 List<PokemonResult> pokemonlist = response.body().getResults();
                 setRvAdapter(pokemonlist);
+                progress.dismiss();
             }
 
             @Override
             public void onFailure(Call<PokemonData> call, Throwable t) {
-                // Log error here since request failed
-                Log.e(TAG, t.toString());
+                progress.dismiss();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+                dialog.setCancelable(false);
+                dialog.setMessage("Please Check Your Internet Connection");
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mNoInternetTV.setVisibility(View.VISIBLE);
+
+                    }
+                });
+                dialog.show();
             }
         });
 
     }
 
+
     private void setRvAdapter(List<PokemonResult> pokemonlist) {
-        pokemonDataAdapter = new PokemonDataAdapter(context, this, pokemonlist);
+        pokemonDataAdapter = new PokemonListAdapter(context, this, pokemonlist);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         mPokemonRV.setLayoutManager(layoutManager);
         mPokemonRV.setItemAnimator(new DefaultItemAnimator());
@@ -104,11 +128,11 @@ public class PokemonlistFrament extends Fragment implements Listener {
     public void responseListener(String URL) {
         Fragment fragment = new PokemonDetailsFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("urla", URL);
+        bundle.putString(AppConstantKeys.POKEDEX_URL_STRING, URL);
         fragment.setArguments(bundle);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment);
-        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.addToBackStack("asd");
         fragmentTransaction.commit();
 
 

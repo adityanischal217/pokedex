@@ -18,14 +18,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PokemonDataAdapter extends RecyclerView.Adapter<PokemonDataAdapter.PokemonViewHolder> {
+public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.PokemonViewHolder> {
 
     private List<PokemonResult> mPokemonlist;
     private Context mContext;
     Listener mLISTENER;
 
-
-    public PokemonDataAdapter(Context context, Listener mListener, List<PokemonResult> pokemonlist) {
+    public PokemonListAdapter(Context context, Listener mListener, List<PokemonResult> pokemonlist) {
         mContext = context;
         mPokemonlist = pokemonlist;
         mLISTENER = mListener;
@@ -38,7 +37,6 @@ public class PokemonDataAdapter extends RecyclerView.Adapter<PokemonDataAdapter.
         return new PokemonViewHolder(itemView);
 
     }
-
 
     @Override
     public void onBindViewHolder(PokemonViewHolder holder, final int position) {
@@ -60,16 +58,13 @@ public class PokemonDataAdapter extends RecyclerView.Adapter<PokemonDataAdapter.
         public PokemonViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
-
         }
-
 
         @OnClick({R.id.relativelayout})
         public void onaaf() {
             int position = getAdapterPosition();
             String url = mPokemonlist.get(position).getUrl();
             mLISTENER.responseListener(url);
-
 
         }
     }

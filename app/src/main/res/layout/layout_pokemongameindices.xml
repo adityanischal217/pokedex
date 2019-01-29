@@ -15,20 +15,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
             android:padding="8dp"
-            android:text="Move"
+            android:text="Game Index"
             android:textColor="@color/White"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/movesname_tv"
+            android:id="@+id/gameindices_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="dfvfdvf"
+            android:text=""
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -45,48 +44,21 @@
 
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="Level Learned at"
+            android:text="Version Name"
             android:textColor="@color/White"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/learn_tv"
+            android:id="@+id/version_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="dfvfdvf"
+            android:text=""
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-            android:layout_weight="1"
-            android:padding="8dp"
-            android:text="Move learn Method"
-            android:textColor="@color/White"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/movesmethod_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp"
-            android:text="dfvfdvf"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp" />
-
-    </LinearLayout>
 </LinearLayout>

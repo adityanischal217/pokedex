@@ -2,17 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/moves_tab"
-
         android:title="Moves" />
 
     <item
-        android:id="@+id/type_tab"
-
-        android:title="Type" />
-    <item
-        android:id="@+id/Forms_tav"
-
-        android:title="Forms" />
+        android:id="@+id/gameindices_tab"
+        android:title="Game Indices" />
 
 
 </menu>

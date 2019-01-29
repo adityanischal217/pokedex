@@ -2,11 +2,25 @@
 
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pokemondetails_relativelu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark"
+    android:visibility="gone"
     tools:context=".Fragment.PokemonDetailsFragment">
+
+    <TextView
+        android:id="@+id/nointernet_tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="No Internet Connection"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40dp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/id_tv"
@@ -15,7 +29,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="10dp"
         android:text=""
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/White"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -27,20 +41,22 @@
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/id_tv"
         android:text=""
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/White"
         android:textSize="25sp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/pokemonimage_iv"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_below="@+id/pokemonname_tv" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/pokemonname_tv"
+        android:layout_centerHorizontal="true" />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/navigation"
         android:layout_below="@id/pokemonimage_iv">
 
         <RelativeLayout
@@ -170,16 +186,16 @@
 
 
                 <TextView
+
                     android:id="@+id/stats_tv"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:gravity="center"
                     android:text="Stats"
                     android:textAlignment="center"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/White"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -188,13 +204,41 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/stats_tv"
-                    android:layout_marginBottom="20dp">
+                    android:layout_margin="10dp"
+                    android:background="@color/BLUE">
 
                 </android.support.v7.widget.RecyclerView>
 
+
+                <TextView
+                    android:id="@+id/types_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/stats_rv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Types"
+                    android:textAlignment="center"
+                    android:textColor="@color/White"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/types_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/types_tv"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/LightSkyBlue_b" />
+
+
             </RelativeLayout>
         </RelativeLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -206,7 +250,7 @@
         android:foreground="?attr/selectableItemBackground"
         app:itemBackground="@color/WhiteSmoke"
         app:itemTextColor="@color/colorAccent"
-
         app:menu="@menu/tabs" />
+
 
 </RelativeLayout>
