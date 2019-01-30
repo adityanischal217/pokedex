@@ -65,7 +65,7 @@ public class PokemonlistFrament extends Fragment implements Listener {
         ButterKnife.bind(this, view);
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null)
-            actionBar.setTitle("Pokedox");
+            actionBar.setTitle("Pokedex");
         init();
         return view;
     }

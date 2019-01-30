@@ -98,7 +98,7 @@ public class PokemonDetailsFragment extends Fragment {
         ButterKnife.bind(this, view);
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null)
-            actionBar.setTitle("Pokedox Details");
+            actionBar.setTitle("Pokedex Details");
         init();
         return view;
     }
