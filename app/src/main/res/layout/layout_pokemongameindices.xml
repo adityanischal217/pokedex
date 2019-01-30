@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="Game Index"
+            android:text="@string/game_index"
             android:textColor="@color/White"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text=""
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -44,7 +43,7 @@
 
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="Version Name"
+            android:text="@string/version_name"
             android:textColor="@color/White"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -55,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text=""
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 

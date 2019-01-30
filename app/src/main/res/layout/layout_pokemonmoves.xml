@@ -17,7 +17,7 @@
             android:layout_weight="1"
 
             android:padding="8dp"
-            android:text="Move"
+            android:text="@string/move"
             android:textColor="@color/White"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="dfvfdvf"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -42,10 +41,9 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="Level Learned at"
+            android:text="@string/level_learned_at"
             android:textColor="@color/White"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -56,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="dfvfdvf"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 
@@ -73,7 +70,7 @@
 
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="Move learn Method"
+            android:text="@string/move_learn_method"
             android:textColor="@color/White"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -84,7 +81,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="8dp"
-            android:text="dfvfdvf"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
 

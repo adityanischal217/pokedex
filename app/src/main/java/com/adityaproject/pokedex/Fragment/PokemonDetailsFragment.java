@@ -49,8 +49,11 @@ import retrofit2.Response;
 
 
 public class PokemonDetailsFragment extends Fragment {
-    String URL;
-    Context context;
+    @BindView(R.id.navigation)
+    BottomNavigationView navigation;
+    ProgressDialog progress;
+    @BindView(R.id.nointernet_tv1)
+    TextView mNoInternetTV;
     @BindView(R.id.pokemonimage_iv)
     ImageView mImage;
     @BindView(R.id.id_tv)
@@ -75,22 +78,18 @@ public class PokemonDetailsFragment extends Fragment {
     TypesAdapter mTypesAdapter;
     @BindView(R.id.stats_tv)
     TextView ml;
-    String name, sprites, height, weight, base_experience, id, abilities;
+    String name, sprites, height, weight, base_experience, id, abilities, URL;
+    Context context;
+    Fragment fragment;
     List<Move> moves;
     List<Stat> stats;
     List<Type> types;
-    Fragment fragment;
     List<GameIndex> game_indices;
-    @BindView(R.id.navigation)
-    BottomNavigationView navigation;
-    ProgressDialog progress;
-    @BindView(R.id.nointernet_tv1)
-    TextView mNoInternetTV;
+
 
     public PokemonDetailsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -114,8 +113,8 @@ public class PokemonDetailsFragment extends Fragment {
 
     private void callAPI() {
         progress.setMessage("Loading...");
-        progress.setCancelable(true);
-        progress.setCanceledOnTouchOutside(true);
+        progress.setCancelable(false);
+        progress.setCanceledOnTouchOutside(false);
         progress.show();
         RestApiInterface apiService =
                 RestApiClient.getClient(URL).create(RestApiInterface.class);
@@ -226,6 +225,4 @@ public class PokemonDetailsFragment extends Fragment {
         transaction.addToBackStack("mmm");
         transaction.commit();
     }
-
-
 }

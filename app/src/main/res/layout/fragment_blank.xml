@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,9 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="No Internet Connection"
+        android:text="@string/no_internet_connection"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:visibility="gone" />
 
     <TextView
@@ -28,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="10dp"
-        android:text=""
         android:textColor="@color/White"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -40,7 +37,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/id_tv"
-        android:text=""
         android:textColor="@color/White"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -76,9 +72,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Height"
+                    android:text="@string/height"
                     android:textColor="@color/WhiteSmoke"
-
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -101,7 +96,7 @@
                     android:layout_below="@id/heightvalue_tv"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Weight"
+                    android:text="@string/weight"
                     android:textColor="@color/WhiteSmoke"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -127,7 +122,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:text="Base Exp."
+                    android:text="@string/base_exp"
                     android:textColor="@color/WhiteSmoke"
 
                     android:textSize="22sp"
@@ -155,9 +150,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:text="Abilities"
+                    android:text="@string/abilities"
                     android:textColor="@color/WhiteSmoke"
-
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -175,7 +169,6 @@
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
-
             </RelativeLayout>
 
             <RelativeLayout
@@ -184,9 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relativelayout1">
 
-
                 <TextView
-
                     android:id="@+id/stats_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -219,7 +210,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Types"
+                    android:text="@string/types"
                     android:textAlignment="center"
                     android:textColor="@color/White"
                     android:textSize="22sp"

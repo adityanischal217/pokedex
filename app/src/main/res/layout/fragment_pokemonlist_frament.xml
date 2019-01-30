@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="No Internet Connection"
+        android:text="@string/no_internet_connection"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:visibility="gone" />
 </RelativeLayout>

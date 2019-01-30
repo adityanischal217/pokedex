@@ -68,5 +68,4 @@ public class PokemonMovesFragment extends Fragment {
         mMovesRV.setItemAnimator(new DefaultItemAnimator());
         mMovesRV.setAdapter(movesAdapter);
     }
-
 }

@@ -1,6 +1,5 @@
 package com.adityaproject.pokedex.Activity;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,8 +12,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.adityaproject.pokedex.Fragment.PokemonlistFrament;
 import com.adityaproject.pokedex.R;
@@ -23,7 +20,6 @@ import butterknife.ButterKnife;
 
 public class MainDashBoard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private static int NAV_ITEM_INDEX = 0;
     Context context;
     Fragment fragment;
 
@@ -67,10 +63,10 @@ public class MainDashBoard extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.nav_share:
                 share();
-                NAV_ITEM_INDEX = 1;
                 return false;
+
         }
-       DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return openFragment(fragment);
     }

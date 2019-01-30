@@ -44,7 +44,6 @@ import retrofit2.Response;
  */
 public class PokemonlistFrament extends Fragment implements Listener {
 
-    private static final String TAG = "Debugtag";
     @BindView(R.id.pokemonlist_rv)
     RecyclerView mPokemonRV;
     @BindView(R.id.nointernet_tv)
@@ -52,7 +51,6 @@ public class PokemonlistFrament extends Fragment implements Listener {
     PokemonListAdapter pokemonDataAdapter;
     Context context;
     ProgressDialog progress;
-    private static int NAV_ITEM_INDEX = 2;
 
     public PokemonlistFrament() {
         // Required empty public constructor
@@ -80,8 +78,8 @@ public class PokemonlistFrament extends Fragment implements Listener {
 
     private void callAPI() {
         progress.setMessage("Loading...");
-        progress.setCancelable(true);
-        progress.setCanceledOnTouchOutside(true);
+        progress.setCancelable(false);
+        progress.setCanceledOnTouchOutside(false);
         progress.show();
         RestApiInterface apiService =
                 RestApiClient.getClient(AppConstantKeys.BASE_URL).create(RestApiInterface.class);
@@ -113,16 +111,13 @@ public class PokemonlistFrament extends Fragment implements Listener {
 
     }
 
-
     private void setRvAdapter(List<PokemonResult> pokemonlist) {
         pokemonDataAdapter = new PokemonListAdapter(context, this, pokemonlist);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         mPokemonRV.setLayoutManager(layoutManager);
         mPokemonRV.setItemAnimator(new DefaultItemAnimator());
         mPokemonRV.setAdapter(pokemonDataAdapter);
-
     }
-
 
     @Override
     public void responseListener(String URL) {
@@ -134,7 +129,6 @@ public class PokemonlistFrament extends Fragment implements Listener {
         fragmentTransaction.replace(R.id.content_frame, fragment);
         fragmentTransaction.addToBackStack("asd");
         fragmentTransaction.commit();
-
 
     }
 }

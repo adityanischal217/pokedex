@@ -10,7 +10,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Stats"
+        android:text="@string/stats"
         android:textAlignment="center"
         android:textColor="@color/White"
         android:textSize="18sp"
@@ -23,7 +23,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/statsname_tv"
-        android:text="value"
         android:textAlignment="center"
         android:textColor="@color/Black"
         android:textSize="16sp" />
@@ -34,9 +33,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:max="150"
         android:layout_marginRight="5dp"
-        android:layout_toRightOf="@+id/statsvalue_tv" />
+        android:layout_toRightOf="@+id/statsvalue_tv"
+        android:max="150" />
 
 
 </RelativeLayout>

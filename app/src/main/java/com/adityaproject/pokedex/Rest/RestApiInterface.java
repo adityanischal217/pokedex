@@ -8,12 +8,10 @@ import retrofit2.http.GET;
 
 public interface RestApiInterface {
 
-
     @GET("./")
     Call<PokemonData> getPokemonList();
 
     @GET("./")
     Call<PokemonDetails> getPokemonDetails();
-
 
 }

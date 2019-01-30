@@ -8,7 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestApiClient {
 
-    // public static final String BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient(String BASE_URL) {
@@ -19,7 +18,6 @@ public class RestApiClient {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-
         return retrofit;
     }
 
